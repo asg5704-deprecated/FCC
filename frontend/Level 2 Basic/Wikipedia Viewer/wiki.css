@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body {
+    background: #FEAC5E;
+    background: -webkit-linear-gradient(bottom, #4BC0C8, #C779D0, #FEAC5E);
+    background: -moz-linear-gradient(bottom, #4BC0C8, #C779D0, #FEAC5E);
+    background: -o-linear-gradient(bottom, #4BC0C8, #C779D0, #FEAC5E);
+    background: linear-gradient(to top, #4BC0C8, #C779D0, #FEAC5E) no-repeat;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-content: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.btn-primary:hover {
+    background-color: white;
+    color: #C779D0;
+    border: 0;
+}
+
+.btn-xlarge {
+    font-size: 125%;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 5px 5px 1em 5px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    height: 425px;
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.7);
+    opacity: 0.8;
+}
+input {
+    height: 50px;
+    width: 100%;
+    border: 0;
+    outline: none;
+    font-size: 125%;
+    background-color: transparent;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding-left: 32px;
+    box-sizing: border-box;
+    color: #FEAC5E;
+}
+.fa-mail-forward {
+    float: right;
+    padding-right: 60px;
+}
+input::-webkit-input-placeholder {
+    color: #FEAC5E;
+}
+#search-box {
+    position: relative;
+}
+#search-box .fa-search {
+    color: #FEAC5E;
+    top: 19px;
+    left: 10px;
+    position: absolute;
+}
+#results {
+    height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.links li {
+    list-style-type: none;
+    align-self: center;
+    width: 80%;
+    height: 15%;
+    background-color: transparent;
+    box-shadow: 5px 5px 16px rgba(0, 0, 0, 0.5);
+   
+    margin-bottom: 7px;
+}
+.links a {
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+    width: 100%;
+    height: 100%;
+    line-height: 3;
+    display: block;
+}
+
+.links li:hover {
+    border-left: 20px solid rgba(255,255,255,0.2);
+}
+
+

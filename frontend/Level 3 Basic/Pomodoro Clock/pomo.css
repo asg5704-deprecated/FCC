@@ -1,0 +1,23 @@
+.ui.segment:first-child {
+	margin: 4rem auto;
+}
+
+.ui.block.header {
+	width: 85px;
+	margin: 0 auto 2rem auto;
+}
+
+.ui.buttons:not(.basic):not(.inverted) {
+	margin: 1.3rem auto;
+}
+
+.website-link, .website-link:hover {
+	color: white;
+	font-size: 1.2em;
+}
+
+.ampersand {
+	color: white;
+	font-size: 2em;
+	border-top: none;
+}

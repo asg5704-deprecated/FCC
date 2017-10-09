@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pomodoro Clock</title>
+	
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  	crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/timrjs/latest/timr.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="pomo.css">	
+</head>
+<body>
+	<div class='ui container segment'>
+		<h1 class='ui center aligned header'>Pomodoro Clock</h1>
+		<h3 class='ui center aligned block header'><span id="time">XX:XX</span></h3>
+			
+		<!-- Start and Reset Buttons -->
+		<div class='ui two column grid'>
+			<div class='ui buttons'>
+			<button class='ui labeled icon green button column' id="startBtn">
+			<i class='play icon'></i>
+			Start Me</button>
+			<button class='ui labeled icon red button column'id="resetBtn">
+			<i class='stop icon'></i>
+			Reset</button>
+			</div>
+		</div>
+			
+		<div class='ui two column grid'>
+			<div class='center aligned column'>
+				<h4 class='ui header'>Work time: <span id="minutes">25</span> minutes</h4>
+				<div class='ui buttons'>
+					<button class='ui icon button' id="sub">
+					<i class='minus icon'></i>
+					Subtract</button>
+					<button class='ui icon button' id="add">
+					<i class='plus icon'></i>Add</button>
+				</div>
+			</div>
+		<!-- Rest Time -->
+			<div class='center aligned column'>
+				<h4 class='ui header'>Rest time: <span id="rest">5</span> minutes</h4>
+				<div class='ui buttons'>
+					<button class='ui icon button' id="subRest">
+					<i class='minus icon'></i>
+					Subtract</button>
+					<button class='ui icon button' id="addRest">
+					<i class='plus icon'></i>
+					Add</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+	<div class='ui container segments'>
+		<div class="ui padded inverted violet center aligned tertiary segment">
+			<h4>Created using: </h4>
+		 </div>
+		 <div class="ui horizontal segments">
+		 	<div class='ui padded center aligned segment'>
+		 		<h4><a href="https://github.com/joesmith100/timrjs">TimrJS</a></h4>
+		 	</div>
+			<div class='ui padded segment center aligned'>
+				<h4><a href='https://semantic-ui.com'>SemanticUI</a></h4>
+			</div>
+  		</div>
+		<div class="ui padded inverted violet center aligned tertiary segment">
+			<h4>by: <a href='https://alexandergarcia.me' class='website-link'><strong>Alexander S. Garcia</strong></a></h4>
+		</div>
+	</div>
+	</footer>
+<script src="pomo.js"></script>
+</body>
+</html>

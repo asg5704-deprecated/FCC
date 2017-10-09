@@ -1,0 +1,123 @@
+
+
+* {box-sizing: border-box}
+
+/*
+Light Green - BG - 96D38D
+Dark Green - Font/Headers - 0A4600
+Green - NavBar - 1E6912
+
+Red - A33643
+Pink - d46d6a
+Super Pink - FFACAA
+maroon - 801815
+dark maroon - 550200
+*/
+
+body {
+  font-size: 16px;
+  background-color: #801815;
+}
+h1 {
+  color: #0A4600;
+  margin-top: 20%;
+  font-size: 5em;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+ }
+.navbar-light .navbar-brand, .navbar-light .navbar-toggler {
+ text-align: center;
+ list-style-type: none;
+ font-family: 'Open Sans', sans-serif;
+ color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #CC6672;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #A33643;
+}
+
+#welcome-section {
+  margin-top: 56px;
+  height: 100vh;
+  width: 100%;
+}
+
+.bg-green {
+  background-color: #1E6912;
+}
+
+.card {
+  width: 28%;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.jumbotron {
+ background-color: lightgrey;
+}
+hr {
+  width: 75%;
+}
+h2 {
+ font-family: 'Slabo 27px', sans-serif;
+ font-size: 2.5em;
+ color: #1E6912;
+ text-align: center;
+ font-weight: bold;
+ }
+#about {
+ margin-top: 0;
+ padding-top: 25px;
+ height: 100%;
+ background-color: white;
+ padding: 52px;
+}
+
+h3 {
+  color: #d46d6a;
+}
+
+p {
+ word-wrap: break-word;
+ text-align: left;
+ font-size: 1.25em;
+ font-family: 'Open Sans', sans-serif;
+ padding-bottom: 20px;
+ display: block;
+ color: black;
+}
+#projects {
+ padding-top: 25px;
+ margin-top: 50px;
+ height: 100%;
+ background-color: white;
+}
+footer {
+ background-color: #d46d6a;
+ color: black;
+ height: 75px;
+ line-height: 75px;
+ text-align: center;
+ }
+
+
+@media (max-width: 768px) {
+h1 {
+  height: 50%;
+}
+
+
+
+
+
+
+}/*End Tablet Size */

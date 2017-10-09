@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS DOM Documentation</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav id="navbar">
+  <header>CSS DOM/CSSOM Documentation</header>
+  <ul> 
+    <li><a class="nav-link" href="#Introductions">Introductions</a></li>
+    <li><a class="nav-link" href="#What_you_should_already_know">What you should already know</a></li>
+    <li class="highlight"><a class="nav-link" href="#Major_object_types">Major object types</a></li>
+    <li><a class="nav-link" href="#Document.styleSheets">Document.styleSheets</a></li>
+    <li><a class="nav-link" href="#styleSheets.cssRules">styleSheets.cssRules</a></li>
+    <li><a class="nav-link" href="#cssRules.cssText">cssRules.cssText</a></li>
+    <li><a class="nav-link" href="#cssRules.selectorText">cssRules.selectorText</a></li>
+    <li><a class="nav-link" href="#elem.style">elem.style</a></li>
+    <li><a class="nav-link" href="#elem.style.cssText">elem.style.cssText</a></li>
+    <li><a class="nav-link" href="#elem.className">elem.className</a></li>
+    <li><a class="nav-link" href="#elem.classList">elem.classList</a></li>
+    <li class="highlight"><a class="nav-link" href="#Important_methods">Important methods</a></li>
+    <li><a class="nav-link" href="#CSSStyleSheet.insertRule">CSSStyleSheet.insertRule</a></li>
+    <li><a class="nav-link" href="#CSSStyleSheet.deleteRule">CSSStyleSheet.deleteRule</a></li>
+  </ul>
+</nav>
+<main id="main-doc">
+<div class="container">
+  <section class="main-section" id="Introductions">
+    <header>Introductions</header>
+    <article>  
+    <h3>Summary</h3>
+      <p>As we have mentioned before, CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.</p>
+      <p>A document is usually a text file structured using a markup language — HTML is the most common markup language, but you will also come across other markup languages such as SVG or XML.</p>
+      <p>Presenting a document to a user means converting it into a usable form for your audience. Browsers, like Firefox, Chrome or Internet Explorer, are designed to present documents visually, for example, on a computer screen, projector or printer.</p>
+      <hr>
+      <p>The CSS Object Model is a set of APIs allowing to manipulate CSS from JavaScript. It is the pendant of DOM and HTML APIs, but for CSS. It allows to read and modify CSS style dynamically.</p>
+      <p>Several other interfaces are also extended by the CSSOM-related specifications: Document, Window, Element, HTMLElement, HTMLImageElement, Range, MouseEvent, and SVGElement.</p>
+      </article>
+    </section>
+  <section class="main-section" id="What_you_should_already_know">
+    <header>What you should already know</header>
+    <article>
+      <h3>Summary</h3>
+      <p>This guide assumes you have the following basic background:</p>
+      <ul>
+        <li>A general understanding of the Internet and the World Wide Web (WWW).</li>
+        <li>Good working knowledge of HyperText Markup Language (HTML).</li>
+        <li>Some programming experience. If you are new to programming, try <a href="https://freecodecamp.com">FreeCodeCamp.com</a></li>
+      </ul>
+      </article>
+    </section>
+  <section class="main-section" id="Major_object_types">
+    <header>Major object types</header>
+    <article>
+    <h3>List:</h3>
+    <ul>
+      <li><a class="nav-link" href="#Document.styleSheets">Document.styleSheets</a></li>
+      <li><a class="nav-link" href="#styleSheets.cssRules">styleSheets.cssRules</a></li>
+      <li><a class="nav-link" href="#cssRules.cssText">cssRules.cssText</a></li>
+      <li><a class="nav-link" href="#cssRules.selectorText">cssRules.selectorText</a></li>
+      <li><a class="nav-link" href="#elem.style">elem.style</a></li>
+      <li><a class="nav-link" href="#elem.style.cssText">elem.style.cssText</a></li>
+      <li><a class="nav-link" href="#elem.className">elem.className</a></li>
+      <li><a class="nav-link" href="#elem.classList">elem.classList</a></li>
+    </ul>
+    </article>
+    </section>
+  <section class="main-section" id="Document.styleSheets">
+    <header>Document.styleSheets</header>
+    <article> 
+    <p>The Document.styleSheets read-only property returns a StyleSheetList of CSSStyleSheet objects for stylesheets explicitly linked into or embedded in a document.</p>
+    <h3>Syntax</h3>
+    <code>var styleSheetList = document.styleSheets;</code>
+
+    <p>The returned object is a StyleSheetList. <br><br>
+      It is an ordered collection of CSSStyleSheet objects. styleSheetList.item(index) or simply styleSheetList[index] returns a single stylesheet object by its index (index is 0-based).<br><br>
+      The list is ordered as follows:</p>
+      <ul>
+        <li>StyleSheets retrieved from Link headers are placed first, sorted in header order.</li>
+        <li>StyleSheets retrieved from the DOM are placed after, sorted in tree order.</li>
+      </ul>
+    </article>
+    </section>
+  <section class="main-section" id="styleSheets.cssRules">
+    <header>styleSheets.cssRules</header>
+    <article>
+    <h3>Summary</h3>
+    <p>A CSSRuleList is an (indirect-modify only) array-like object containing an ordered collection of CSS Rule objects.</p>
+    <h3>Description</h3>
+    <p>Each CSSRule can be accessed as rules.item(index), or simply rules[index], where rules is an object implementing the CSSRuleList interface (such as CSSStylesheet.cssRules) , and index is the 0-based index of the rule, in the order as it appears in the style sheet CSS. The number of rules in the list is rules.length.<br><br>
+    Note that being indirect-modify (changeable but only having read-methods), rules are NOT added or removed from the list directly, but instead here, only via its parent stylesheet. In fact, .insertRule() and .deleteRule() are not even methods of CSSRuleList, but only of CSSStyleSheet. If however, for some reason the list does need to be modified but has no parent stylesheet (perhaps being a livecopy of a list that does), it cannot just be assigned one (as it has no such property), and neither can it be assigned to one (as stylesheet.cssRules is read-only), but it must unfortunately be inserted into one, rule by rule, and unless combining lists, after any existing list therein is deleted, rule by rule.</p>
+    <h3>Example</h3>
+    <code>
+    // get the first style sheet's first rule
+    var first_rule = document.styleSheets[0].cssRules[0];
+    </code>
+    </article>
+    </section>
+  <section class="main-section" id="cssRules.cssText">
+    <header>cssRules.cssText</header>
+    <article>
+    <h3>Description</h3>
+    <p>cssText returns the actual text of a CSSStyleSheet style-rule.
+    <br><br>Note: Can no longer be set directly, as now specified to be functionally modify-only -- and *silently* so -- meaning that attempting to set it does absolutely *nothing* -- not even warn or error.  Further, it has no settable sub-properties.  Therefore, to modify, use the stylesheet's cssRules[index] properties .selectorText and .style (or its sub-properties).  See Using dynamic styling information for details.</p>
+    <code>string = cssRule.cssText </code>
+    <h3>Example</h3>
+    <code>
+    var stylesheet = document.styleSheets[0];
+      alert(stylesheet.cssRules[0].cssText); 
+      // body { background-color: darkblue; }
+    </code>
+    </article>
+    </section>
+  <section class="main-section" id="cssRules.selectorText">
+    <header>cssRules.selectorText</header>
+    <article>
+      <h3>Summary</h3> 
+      <p> The CSSRule.selectorText property gets the textual representation of the selector for the rule set. This is readonly in some browsers; to set stylesheet rules dynamically cross-browser, see Using dynamic styling information.</p>
+      <h3>Syntax</h3>
+      <code>string = cssRule.selectorText</code>
+      <h3>Example</h3>
+      <code>
+      // for cssrule: body { background-color: darkblue; }
+      var stylesheet = document.styleSheets[0];
+
+      alert(stylesheet.cssRules[0].selectorText);
+      </code>
+      <h3>Notes</h3>
+      <p>The implementation may have stripped out insignificant whitespace while parsing the selector. If set to a selector string which cannot be parsed, a SyntaxError is thrown.</p>
+    </article>
+    </section>
+  <section class="main-section" id="elem.style">
+    <header>elem.style</header>
+    <article>
+    <h3>Summary</h3>
+    <p>The HTMLElement.style property is used to get as well as set the inline style of an element. While getting, it returns a CSSStyleDeclaration object that contains a list of all styles properties for that element with values assigned for the attributes that are defined in the element's inline style attribute.  See the CSS Properties Reference for a list of the CSS properties accessible via style.The style property has the same (and highest) priority in the CSS cascade as an inline style declaration set via the style attribute.</p>
+    <h4>Setting styles</h4>
+    <p>Styles can be set by assigning a string directly to the style property (as in elt.style = "color: blue;") or by assigning values to the properties of style. For adding specific styles to an element without altering other style values, it is preferred to use the individual properties of style (as in elt.style.color = '...' ) as using elt.style.cssText = '...' or elt.setAttribute('style', '...') sets the complete inline style for the element by overriding the existing inline styles. Note that the property names are in camel-case and not kebab-case while setting the style using elt.style.< property > (i.e. elt.style.fontSize, not elt.style.font-size)</p>
+    <h3>Examples</h3>
+    <code>
+    // Set multiple styles in a single statement
+    elt.style.cssText = "color: blue; border: 1px solid black"; 
+    // OR
+    elt.setAttribute("style", "color:red; border: 1px solid blue;");
+
+    elt.style.color = "blue";  // Set specific style while leaving other inline style values untouched</code>
+    <h4>Getting style information</h4>
+    <p>The style property is not useful for completely learning about the styles applied on the element, since it represents only the CSS declarations set in the element's inline style attribute, not those that come from style rules elsewhere, such as style rules in the < head> section, or external style sheets. To get the values of all CSS properties for an element you should use window.getComputedStyle() instead.<br><br>
+    The following code snippet demonstrates the difference between the values obtained using the element's style property and that obtained using the computedStyle() method:</p>
+    <code>
+    var element = document.getElementById("myElement");
+    var out = "";
+    var elementStyle = element.style;
+    var computedStyle = window.getComputedStyle(element, null);
+
+    for (prop in elementStyle) {
+      if (elementStyle.hasOwnProperty(prop)) {
+        out += "  " + prop + " = '" + elementStyle[prop] + "' > '" + computedStyle[prop] + "'\n";
+      }
+    }
+    console.log(out)</code>
+    <p>The output would be something like:</p>
+    <code>
+    ...
+    fontWeight = '' > 'bold'
+    color = 'red' > 'rgb(255, 0, 0)'
+    ...
+    </code>
+    </article>
+    </section>
+  <section class="main-section" id="elem.style.cssText">
+    <header>elem.style.cssText</header>
+    <article>
+    <h3>Summary</h3>
+    <p>cssText returns or sets the text of the element's inline style declaration only. To be able to set a stylesheet rule dynamically, see Using dynamic styling information.</p>
+    <h3>Syntax</h3>
+    <code>string = elem.style.cssText</code>
+    <h3>Example</h3>
+    <code>
+     &lt;span id="s1" style="color: red;"&gt;Some text&lt;/span&gt;
+     
+     &lt;script&gt;
+        var elem = document.getElementById("s1");
+        alert(elem.style.cssText); // { color: red; }
+    &lt;/script&gt;
+    </code>
+    </article>
+    </section>
+  <section class="main-section" id="elem.className">
+    <header>elem.className</header>
+    <article>
+      <h3>Summary</h3>
+      <strong>className</strong> gets and sets the value of the class attribute of the specified element.
+      <h3>Syntax</h3>
+      <code>
+      var cName = elementNodeReference.className;
+      elementNodeReference.className = cName;
+      </code>
+      <ul>
+        <li>cName is a string variable representing the class or space-separated classes of the current element.</li>
+      </ul>
+      <h3>Example</h3> 
+      <code>
+      var elm = document.getElementById("div1");
+
+      if (elm.className === "fixed") {
+      // skip a particular class of element
+      goNextElement();
+      }
+      </code>
+      <h3>Notes</h3>
+      <p>The name className is used for this property instead of class because of conflicts with the "class" keyword in many languages which are used to manipulate the DOM.</p>
+    </article>
+    </section>
+  <section class="main-section" id="elem.classList">
+    <header>elem.classList</header>
+    <article>
+      <h3>Summary</h3>
+      <p>The Element.classList is a read-only property which returns a live DOMTokenList collection of the class attributes of the element.<br><br>Using classList is a convenient alternative to accessing an element's list of classes as a space-delimited string via element.className.</p>
+      <h3>Syntax</h3>
+      <code>const elementClasses = elementNodeReference.classList;</code>
+      <p>elementClasses is a DOMTokenList representing the class attribute of elementNodeReference. If the class attribute was not set or is empty elementClasses.length returns 0. element.classList itself is read-only, although you can modify it using the add() and remove() methods.</p>
+      <h3>Methods</h3>
+      <h5>add( String [, String] )</h5>
+      <p>Add specified class values. If these classes already exist in attribute of the element, then they are ignored.</p>
+      <h5>remove( String [,String] )</h5>
+      <p>Remove specified class values.</p>
+      <h5>item ( Number )</h5>
+      <p>Return class value by index in collection.</p>
+      <h5>toggle ( String [, force] )</h5>
+      <p>When only one argument is present: Toggle class value; i.e., if class exists then remove it and return false, if not, then add it and return true.<br>When a second argument is present: If the second argument evaluates to true, add specified class value, and if it evaluates to false, remove it.</p>
+      <h5>contains( String )</h5>
+      <p>Checks if specified class value exists in class attribute of the element.</p>
+      <h3>Example</h3>
+      <code>// div is an object reference to a &lt;div&gt; element with class="foo bar"
+div.classList.remove("foo");
+div.classList.add("anotherclass");
+
+// if visible is set remove it, otherwise add it
+div.classList.toggle("visible");
+
+// add/remove visible, depending on test conditional, i less than 10
+div.classList.toggle("visible", i &lt; 10 );
+
+alert(div.classList.contains("foo"));
+
+// add or remove multiple classes
+div.classList.add("foo", "bar");
+div.classList.remove("foo", "bar");</code>
+    </article>
+    </section>
+  <section class="main-section" id="Important_methods">
+    <header>Important methods</header>
+    <article>
+    <h3>List:</h3>
+      <ul>
+        <li><a href="#CSSStyleSheet.insertRule">CSSStyleSheet.insertRule</a></li>
+        <li><a href="#CSSStyleSheet.deleteRule">CSSStyleSheet.deleteRule</a></li>
+      </ul>
+    </article>
+    </section>
+  <section class="main-section" id="CSSStyleSheet.insertRule">
+    <header>CSSStyleSheet.insertRule</header>
+    <article> 
+    <h3>Summary</h3>
+    <p><strong>CSSStyleSheet.insertRule()</strong> method inserts a new CSS rule into the current style sheet, with some restrictions.<br><br>More specifically, though <strong>insertRule()</strong> is exclusively a method of the CSSStyleSheet, it actually inserts the rule into CSSStyleSheet.cssRules, the CSSRuleList therein.<br><br>What the rule must contain depends on its type: For rule-sets the rule specifies both the selector and the style declaration. For at-rules, the rule specifies both the at-identifier and the rule content.</p>
+    <h3>Syntax</h3>
+    <code>stylesheet.insertRule(rule, index)</code>
+    <h5>Parameters</h5>
+      <ul>
+        <li>rule is a DOMString containing the rule to be inserted,
+...where rule specifies selector and declaration, or at-identifier and rule content.</li>
+        <li>index is an unsigned int representing the position in CSSStyleSheet.cssRules to insert at,
+...where index-0 is first rule, and index-max is just after last rule and is the same as length of CSSStyleSheet.cssRules.</li>
+      </ul>
+      <p>Note: index is optional, with a default value 0</p>
+    <h5>Return Value</h5>
+    <p>The index within the style sheet's rule-list of the newly inserted rule.</p>
+    <h5>Restrictions</h5>
+    <p>CSS stylesheet rule-lists have a number of intuitive and not-so-intuitive restrictions affecting how and where rules can be inserted. Violating these will likely cause an error raised as a DOMException </p>
+    <ul>
+      <li>If index > number of rules in the stylesheet (the CSSRuleList.length), then aborts with IndexSizeError.</li>
+      <li>If rule cannot be inserted at index 0 due to some CSS constraint, then aborts with HierarchyRequestError.</li>
+      <li>If more than one rule is given in the rule parameter, then aborts with SyntaxError</li>
+      <li>If trying to insert an @import at-rule after a style rule, then aborts with HierarchyRequestError.</li>
+      <li>If rule is @namespace at-rule and list has more than just @import at-rules and/or @namespace at-rules, then aborts with InvalidStateError.</li>
+    </ul>
+    <h3>Examples</h3>
+    <h5>Example 1</h5>
+    <code>
+    // push a new rule onto the top of my stylesheet
+    myStyle.insertRule("#blanc { color: white }", 0);</code>
+    <h5>Example 2</h5>
+    <code>
+ /**
+ * Add a stylesheet rule to the document (may be better practice, however,
+ * to dynamically change classes, so style information can be kept in
+ * genuine stylesheets (and avoid adding extra elements to the DOM))
+ * Note that an array is needed for declarations and rules since ECMAScript does
+ * not afford a predictable object iteration order and since CSS is 
+ * order-dependent (i.e., it is cascading); those without need of
+ * cascading rules could build a more accessor-friendly object-based API.
+ * @param {Array} rules Accepts an array of JSON-encoded declarations
+ * @example
+addStylesheetRules([
+  ['header', // Also accepts a second argument as an array of arrays instead
+    ['color', 'red'],
+    ['background-color', 'green', true] // 'true' for !important rules 
+  ], 
+  ['.myClass', 
+    ['background-color', 'yellow']
+  ]
+]);
+ */
+function addStylesheetRules (rules) {
+  var styleEl = document.createElement('style'),
+      styleSheet;
+
+  // Append style element to head
+  document.head.appendChild(styleEl);
+
+  // Grab style sheet
+  styleSheet = styleEl.sheet;
+
+  for (var i = 0, rl = rules.length; i < rl; i++) {
+    var j = 1, rule = rules[i], selector = rules[i][0], propStr = '';
+    // If the second argument of a rule is an array of arrays, correct our variables.
+    if (Object.prototype.toString.call(rule[1][0]) === '[object Array]') {
+      rule = rule[1];
+      j = 0;
+    }
+
+    for (var pl = rule.length; j < pl; j++) {
+      var prop = rule[j];
+      propStr += prop[0] + ':' + prop[1] + (prop[2] ? ' !important' : '') + ';\n';
+    }
+
+    // Insert CSS Rule
+    styleSheet.insertRule(selector + '{' + propStr + '}', styleSheet.cssRules.length);
+  }
+}
+    </code>
+    </article>
+    </section>
+
+
+    <section class="main-section" id="CSSStyleSheet.deleteRule">
+      <header>CSSStyleSheet.deleteRule</header>
+      <article>
+      <h3>Summary</h3>
+      <p>The CSSStyleSheet.deleteRule() method removes a style rule from the current style sheet object.</p>
+      <h3>Syntax</h3>
+      <code>stylesheet.deleteRule(index)</code>
+      <h5>Parameters</h5>
+        <ul>
+          <li>index is a long number representing the position of the rule.</li>
+        </ul>
+      <h5>Return value</h5>
+        <em>Void</em>
+      <h3>Example</h3>
+        <code>myStyles.deleteRule(0);</code>
+      </article>
+    </section>
+</div>    
+</main>
+</body>

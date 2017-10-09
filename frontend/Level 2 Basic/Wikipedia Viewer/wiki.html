@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wikipedia Viewer - by Alexander Garcia</title>
+   	<link rel="stylesheet" href="https://use.fontawesome.com/51bdc412b5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="wiki.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Wikipedia Viewer</h1>
+        <div id="random-article-box">
+            <a class="pure-button btn-primary btn-xlarge" href="https://en.wikipedia.org/wiki/Special:Random" ><i class="fa fa-question"></i> Random Article</a>
+        </div>
+        <div id="results">
+        </div>
+        <div id="search-box">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Search..." id="searchArticle" class="search-article">
+        </div>
+    </div>
+<script type="text/javascript" src="wiki.js" async></script>
+</body>
+</html>
