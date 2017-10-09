@@ -21,7 +21,7 @@ This is a complete list of my FreeCodeCamp projects
 		[ ] Tic-tac-toe Game - in progress
 		[ ] Simon Says Game
 
-	## Back-end Certificate
+## Back-end Certificate
 	* Application Programming Interface
 		[ ] Timestamp Microservice
 		[ ] Request Header Parser Microservice
@@ -35,7 +35,7 @@ This is a complete list of my FreeCodeCamp projects
 		[ ] Book Trading Club App
 		[ ] Pinterest Clone
 
-	## Data Visualization Certificate
+## Data Visualization Certificate
 	* React
 		[ ] Markdown Previewer
 		[ ] Camper Leaderboard
