@@ -1,0 +1,21 @@
+{
+  "name": "fcc-learn-npm-package-json",
+  "dependencies": {
+    "express": "^4.16.3",
+    "npm": "^5.8.0",
+    "node": "^9.11.0",
+    "moment": "^2.22.0",
+    "body-parser": "^1.18.2"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "4.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asg5704/FCC.git"
+  }
+}
